@@ -1,14 +1,12 @@
 /* Stil Güncellemeleri */
-
+html {
+  scroll-behavior: smooth;
+}
 body { /* Soft pink background */
   color: #5d235d; /* Dark purple for text */
   font-family: "Comic Sans MS", cursive, sans-serif; /* Fun font */
-  /* Add a subtle cat pattern background image */
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  cursor: url("assets/hellokitty.jpg"), auto;
   background-image: url('assets/bg.png');
+  background-size: cover;
 }
 
 .container {
