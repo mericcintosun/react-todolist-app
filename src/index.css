@@ -9,7 +9,7 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   cursor: url("assets/hellokitty.jpg"), auto;
-  min-height: 125dvh;
+  min-height: 100dvh;
 }
 
 .container {
