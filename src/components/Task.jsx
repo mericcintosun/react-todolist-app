@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Task = ({ task, onEdit, onDelete, onToggleComplete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(task.text);
 
   const handleEdit = () => {
-    if (isEditing) {
+    if (isEditing && editText.trim() !== "") {
       onEdit(editText);
     }
-    setIsEditing(!isEditing);
+    setIsEditing(!isEditing); // Düzenleme modunu aç/kapat
   };
+
+  // task prop'u değiştiğinde (örneğin, düzenleme sonrasında) editText durumunu güncelle
+  useEffect(() => {
+    setEditText(task.text);
+  }, [task.text]);
 
   return (
     <li>
