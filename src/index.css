@@ -1,25 +1,56 @@
-/* Basic Style */
+/* Stil Güncellemeleri */
 
 body {
-  background: #fff;
-  color: #333;
-  font-family: Lato, sans-serif;
-  background-color: #e4e4e4;
+  background: #ffe4e9; /* Soft pink background */
+  color: #5d235d; /* Dark purple for text */
+  font-family: "Comic Sans MS", cursive, sans-serif; /* Fun font */
+  background-image: url("assets/littlecat.jpg"); /* Add a subtle cat pattern background image */
+  background-size: contain;
+  background-repeat: repeat;
+  cursor: url("assets/hellokitty.jpg"), auto; /* Custom cursor */
 }
 
 .container {
   display: block;
-  width: 400px;
-  margin: 10px auto 100px;
+  width: 90%; /* Width changed to 90% for responsiveness */
+  max-width: 450px; /* Maximum width for larger screens */
+  margin: 20px auto;
   background-color: #fff;
-  padding: 0px 10px 10px 10px;
-  border-radius: 10px;
+  padding: 20px;
+ /* More rounded corners */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  border: 3px solid #f8c9da; /* Light pink border */
+  transition: transform 0.2s ease;
+}
+
+.container:hover {
+  transform: scale(1.03); /* Hafif büyüme */
 }
 
 h2 {
   text-align: center;
   padding-top: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
+  color: #c71585; /* Medium violet red */
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+h2:after {
+  content: " 🐱"; /* Princess crown emoji */
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 24px; /* Daha küçük taç */
+}
+
+h3,
+label[for="new-task"] {
+  color: #c71585; /* Medium violet red */
+  font-weight: 700;
+  font-size: 18px;
+  border-bottom: 2px dashed #c71585; /* Dashed underline */
+  padding: 10px 0;
+  margin: 0;
 }
 
 ul {
@@ -40,55 +71,50 @@ h3 {
 input,
 button {
   outline: none;
+  border-radius: 10px; /* Rounded inputs and buttons */
 }
 
+/* Buttons */
 button {
-  background: none;
-  border: 0px;
-  color: #888;
-  font-size: 15px;
-  width: 60px;
-  margin: 10px 0 0;
-  font-family: Lato, sans-serif;
+  background: #ffb6c1; /* Light pink */
+  border: 1px solid #c71585; /* Medium violet red border */
+  color: #fff;
+  font-size: 16px;
+  width: 80px;
+  margin: 0 5px; /* Add horizontal spacing between buttons */
+  padding: 5px 10px; /* Add padding for a balanced look */
   cursor: pointer;
+  transition: background 0.3s ease;
+  margin-bottom: 5px;
 }
 
 button:hover {
-  color: #333;
+  background: #c71585; /* Darker pink on hover */
 }
 
-/* Heading */
-
-h3,
-label[for="new-task"] {
-  color: #333;
-  font-weight: 700;
-  font-size: 15px;
-  border-bottom: 2px solid #333;
-  padding: 20px 0 10px;
-  margin: 0;
-  text-transform: uppercase;
+p > button:hover {
+  color: #ff69b4; /* Hot pink */
 }
 
+/* Input Fields */
 input[type="text"] {
-  margin: 0;
+  margin: 10px 0; /* Add vertical spacing between input and button */
   font-size: 18px;
   line-height: 18px;
-  height: 18px;
+  height: 35px; /* Taller input */
   padding: 10px;
-  border: 1px solid #ddd;
-  background: #fff;
-  border-radius: 6px;
-  font-family: Lato, sans-serif;
-  color: #888;
+  border: 2px solid #f8c9da; /* Light pink border */
+  background: #ffeef2; /* Very light pink */
+  color: #c71585; /* Medium violet red */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
 input[type="text"]:focus {
-  color: #333;
+  color: #5d235d;
+  border-color: #ff69b4; /* Hot pink border on focus */
 }
 
-/* New Task */
-
+/* New Task Input */
 label[for="new-task"] {
   display: block;
   margin: 0 0 20px;
@@ -96,25 +122,35 @@ label[for="new-task"] {
 
 input#new-task {
   float: left;
-  width: 318px;
+  width: calc(100% - 100px); /* Adjust width to fit next to button */
+  margin-right: 10px; /* Add spacing to the right of input */
 }
 
-p > button:hover {
-  color: #0fc57c;
-}
-
-/* Task list */
-
+/* Task List */
 li {
   overflow: hidden;
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px dashed #f8c9da; /* Dashed light pink separator */
+  position: relative;
+  transition: background 0.3s ease; /* Add transition for background color */
+}
+
+li:hover {
+  background-color: #f8e1e7; /* Light pink background on hover */
+}
+
+li:before {
+  content: "🐱"; /* Cat icon before each task */
+  position: absolute;
+  left: -30px;
+  font-size: 20px; /* Daha küçük kedi ikonu */
+  color: #ff69b4; /* Hot pink */
 }
 
 li > input[type="checkbox"] {
   margin: 0 10px;
   position: relative;
-  top: 15px;
+  top: 10px;
 }
 
 li > label {
@@ -128,19 +164,18 @@ li > input[type="text"] {
   width: 226px;
 }
 
-li > .delete:hover {
-  color: #cf2323;
+li > .delete:hover,
+li > .edit:hover {
+  color: #d00050; /* Darker pink */
 }
 
-/* Completed */
-
+/* Completed Tasks */
 #completed-tasks label {
   text-decoration: line-through;
   color: #888;
 }
 
-/* Edit Task */
-
+/* Edit Mode */
 ul li input[type="text"] {
   display: none;
 }
@@ -151,4 +186,60 @@ ul li.editMode input[type="text"] {
 
 ul li.editMode label {
   display: none;
+}
+
+/* Scroll Animations */
+/* Scroll Animations */
+.container {
+  overflow-y: auto; /* Add vertical scrollbar if content exceeds container height */
+  max-height: 500px; /* Limit the height of the container */
+  padding-right: 15px; /* Add padding to make room for scrollbar */
+}
+
+.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #c71585; /* Medium violet red for scrollbar thumb */
+  border-radius: 10px; /* Add rounded corners to the scrollbar thumb */
+  border: 2px solid #ffe4e9; /* Add a border to make the corners smoother */
+}
+
+.container::-webkit-scrollbar-track {
+  background-color: #ffeef2; /* Very light pink for scrollbar track */
+  border-radius: 10px; /* Add rounded corners to the scrollbar track */
+}
+
+/* Mouse Hover Animation */
+.container:hover {
+  transform: scale(1.02); /* Slight scale up on hover */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    width: 95%; /* Make the container take more width on small screens */
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3,
+  label[for="new-task"] {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 14px;
+    width: 70px;
+  }
+
+  input[type="text"] {
+    font-size: 16px;
+    height: 30px; /* Adjust height for smaller screens */
+  }
 }

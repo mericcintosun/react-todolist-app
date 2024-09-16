@@ -1,17 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Task from "./components/Task";
 
 const App = () => {
-  const [tasks, setTasks] = useState([
-    { text: "Pay Bills", completed: false },
-    { text: "Go Shopping", completed: false },
-  ]);
+  // Uygulama yüklendiğinde localStorage'dan verileri al
+  const getInitialTasks = () => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  };
 
-  const [completedTasks, setCompletedTasks] = useState([
-    { text: "See the Doctor", completed: true },
-  ]);
+  const getInitialCompletedTasks = () => {
+    const savedCompletedTasks = localStorage.getItem("completedTasks");
+    return savedCompletedTasks ? JSON.parse(savedCompletedTasks) : [];
+  };
 
+  const [tasks, setTasks] = useState(getInitialTasks);
+  const [completedTasks, setCompletedTasks] = useState(getInitialCompletedTasks);
   const [newTask, setNewTask] = useState("");
+
+  // tasks veya completedTasks her değiştiğinde localStorage'a kaydet
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
+  }, [completedTasks]);
 
   const createNewTaskElement = (taskString) => ({
     text: taskString,
