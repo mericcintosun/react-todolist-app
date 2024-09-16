@@ -4,12 +4,13 @@ body {
   background: #ffe4e9; /* Soft pink background */
   color: #5d235d; /* Dark purple for text */
   font-family: "Comic Sans MS", cursive, sans-serif; /* Fun font */
-  background-image: url("assets/bg.png"); /* Add a subtle cat pattern background image */
+  /* Add a subtle cat pattern background image */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   cursor: url("assets/hellokitty.jpg"), auto;
   min-height: 100dvh;
+  background-color: pink;
 }
 
 .container {
