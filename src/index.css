@@ -19,7 +19,7 @@ body {
   margin: 20px auto;
   background-color: #fff;
   padding: 20px;
- /* More rounded corners */
+  /* More rounded corners */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
   border: 3px solid #f8c9da; /* Light pink border */
   transition: transform 0.2s ease;
@@ -221,8 +221,14 @@ ul li.editMode label {
 
 /* Responsive Design */
 @media (max-width: 600px) {
+  body {
+    background-image: url("assets/mobil-bg.png"); /* Add a subtle cat pattern background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
   .container {
-    width: 95%; /* Make the container take more width on small screens */
+    width: 70%; /* Make the container take more width on small screens */
     padding: 15px;
   }
 
