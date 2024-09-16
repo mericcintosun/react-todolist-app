@@ -1,5 +1,7 @@
 /* Stil Güncellemeleri */
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: #ffe4e9; /* Soft pink background */
   color: #5d235d; /* Dark purple for text */
