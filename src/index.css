@@ -1,7 +1,5 @@
 /* Stil Güncellemeleri */
-html {
-  scroll-behavior: smooth;
-}
+
 body {
   background: #ffe4e9; /* Soft pink background */
   color: #5d235d; /* Dark purple for text */
@@ -251,11 +249,7 @@ ul li.editMode label {
     margin: 5px 0; /* Düğmeler arasında dikey boşluk */
     padding: 10px; /* Düğmelere daha fazla iç boşluk eklendi */
   }
-  button:hover {
-    background-color: initial;
-  }
-
-  }
+  
   input[type="text"] {
     font-size: 16px;
     height: 40px; /* Giriş alanını daha büyük yap */
@@ -274,4 +268,4 @@ ul li.editMode label {
     width: auto; /* Genişliği otomatik yap */
     margin: 5px 0; /* Dikey boşluk ekle */
   }
-
+}
