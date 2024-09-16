@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Task from "./components/Task";
 
 const App = () => {
-  // Uygulama yüklendiğinde localStorage'dan verileri al
   const getInitialTasks = () => {
     const savedTasks = localStorage.getItem("tasks");
     return savedTasks ? JSON.parse(savedTasks) : [];
@@ -14,28 +13,30 @@ const App = () => {
   };
 
   const [tasks, setTasks] = useState(getInitialTasks);
-  const [completedTasks, setCompletedTasks] = useState(getInitialCompletedTasks);
+  const [completedTasks, setCompletedTasks] = useState(
+    getInitialCompletedTasks
+  );
   const [newTask, setNewTask] = useState("");
   useEffect(() => {
-    // Tekerleğin kaydırma davranışını önleme
     const handleWheel = (event) => {
-      const container = document.querySelector('.container');
+      const container = document.querySelector(".container");
       if (container && container.contains(event.target)) {
         if (
-          (event.deltaY < 0 && container.scrollTop === 0) || 
-          (event.deltaY > 0 && container.scrollTop + container.clientHeight === container.scrollHeight)
+          (event.deltaY < 0 && container.scrollTop === 0) ||
+          (event.deltaY > 0 &&
+            container.scrollTop + container.clientHeight ===
+              container.scrollHeight)
         ) {
           event.preventDefault();
         }
       }
     };
 
-    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener("wheel", handleWheel, { passive: false });
     return () => {
-      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener("wheel", handleWheel);
     };
   }, []);
-  // tasks veya completedTasks her değiştiğinde localStorage'a kaydet
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);

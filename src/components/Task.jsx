@@ -4,17 +4,22 @@ const Task = ({ task, onEdit, onDelete, onToggleComplete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(task.text);
 
-  const handleEdit = () => {
-    if (isEditing && editText.trim() !== "") {
-      onEdit(editText);
+  useEffect(() => {
+    if (isEditing) {
+      setEditText(task.text);
     }
-    setIsEditing(!isEditing); // Düzenleme modunu aç/kapat
+  }, [isEditing, task.text]);
+
+  const handleEdit = () => {
+    setIsEditing(true);
   };
 
-  // task prop'u değiştiğinde (örneğin, düzenleme sonrasında) editText durumunu güncelle
-  useEffect(() => {
-    setEditText(task.text);
-  }, [task.text]);
+  const handleEditKeyPress = (e) => {
+    if (e.key === "Enter" && editText.trim() !== "") {
+      onEdit(editText);
+      setIsEditing(false);
+    }
+  };
 
   return (
     <li>
@@ -28,12 +33,14 @@ const Task = ({ task, onEdit, onDelete, onToggleComplete }) => {
           type="text"
           value={editText}
           onChange={(e) => setEditText(e.target.value)}
+          onKeyPress={handleEditKeyPress}
+          autoFocus
         />
       ) : (
         <label>{task.text}</label>
       )}
       <button className="edit" onClick={handleEdit}>
-        {isEditing ? "Save" : "Edit"}
+        Edit
       </button>
       <button className="delete" onClick={onDelete}>
         Delete
