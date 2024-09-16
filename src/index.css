@@ -222,13 +222,15 @@ ul li.editMode label {
 /* Responsive Design */
 @media (max-width: 600px) {
   body {
-    background-image: url("assets/mobil-bg.png"); /* Add a subtle cat pattern background image */
+    background-image: url("assets/mobil-bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    font-family: Arial , sans-serif;
   }
+
   .container {
-    width: 70%; /* Make the container take more width on small screens */
+    width: 90%; /* Mobilde daha geniş alan kullan */
     padding: 15px;
   }
 
@@ -243,11 +245,31 @@ ul li.editMode label {
 
   button {
     font-size: 14px;
-    width: 70px;
+    width: 100%; /* Düğmeler tam genişlikte olacak şekilde ayarlandı */
+    margin: 5px 0; /* Düğmeler arasında dikey boşluk */
+    padding: 10px; /* Düğmelere daha fazla iç boşluk eklendi */
+  }
+  button:hover {
+    background-color: initial;
   }
 
+  }
   input[type="text"] {
     font-size: 16px;
-    height: 30px; /* Adjust height for smaller screens */
+    height: 40px; /* Giriş alanını daha büyük yap */
+    width: 100%; /* Giriş alanını tam genişlikte yap */
+    margin: 10px 0; /* Dikey boşluk ekle */
   }
-}
+
+  /* Liste Öğelerini Mobilde Daha İyi Göster */
+  li {
+    padding: 10px 0;
+  }
+
+  li > input[type="checkbox"],
+  li > label,
+  li > input[type="text"] {
+    width: auto; /* Genişliği otomatik yap */
+    margin: 5px 0; /* Dikey boşluk ekle */
+  }
+
